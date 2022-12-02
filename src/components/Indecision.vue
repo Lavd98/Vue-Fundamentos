@@ -37,7 +37,9 @@ export default {
                 this.answer = answer === 'yes' ? 'Si!' : 'No';
                 this.image = image;
             } catch (error) {
-                console.log(error)
+                console.log('Indecision component', error)
+                this.answer = 'No se pudo cargar del API'
+                this.image = null
             }
         }
     },
@@ -45,6 +47,7 @@ export default {
         question(value, oldValue) {
 
             this.isValidQuestion = false
+            console.log({value})
             if(!value.includes('?')) return
 
             this.isValidQuestion = true
